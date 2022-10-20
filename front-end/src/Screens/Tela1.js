@@ -20,7 +20,8 @@ export default function tela1({navigation}) {
 
     return (
         <SafeAreaView style={EstiloT1.container} >
-
+ 
+ 
             <Titulo />
 
             <View style={EstiloT1.formulario}  >
