@@ -18,10 +18,11 @@ export default function tela1({navigation}) {
     const [check1, setCheck1] = useState(false);
     const [check2, setCheck2] = useState(false);
 
+
     return (
         <SafeAreaView style={EstiloT1.container} >
  
- 
+
             <Titulo />
 
             <View style={EstiloT1.formulario}  >
