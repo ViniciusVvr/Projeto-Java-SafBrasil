@@ -1,7 +1,7 @@
 import React from 'react'
 import {View, TouchableOpacity, Text} from 'react-native'
 
-import EstiloT1 from './EstiloT1'
+import EstiloT1 from '../style/EstiloT1'
 
 export default (props) => {
 

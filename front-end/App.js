@@ -1,5 +1,5 @@
 import React from 'react'
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'; //npm install @react-navigation/native-stack
 
@@ -9,28 +9,48 @@ import Tela3 from './src/Screens/Tela3'
 
 const Stack = createNativeStackNavigator();
 
-function MinhasTelas() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name='Tela 1' component={Tela1} />
-      <Stack.Screen name="Tela 2" component={Tela2} /> 
-      <Stack.Screen name="Tela 3" component={Tela3} />
-    </Stack.Navigator>
-  );
-}
 
 export default function App() {
   return (
-    <SafeAreaView style={{flex: 1}}>
-
+    <SafeAreaView style={{ flex: 1 }}>
       <NavigationContainer>
-        <MinhasTelas />
+        <Stack.Navigator
+        
+          initialRouteName='BemVindo'
+          screenOptions={screenOptions}
+          
+        >
+          <Stack.Screen
+            name='BemVindo'
+            component={Tela1}
+            options={{
+              title: "Boas Vindas",
+              headerShown: false,
+            }} />
+          <Stack.Screen
+            name="Formulario"
+            component={Tela2}
+            options={{
+              title: 'Cadastro do Beneficiado'
+            }}
+          />
+          <Stack.Screen
+            name="Obrigado"
+            component={Tela3}
+          />
+        </Stack.Navigator>
       </NavigationContainer>
 
-       {/* <Tela1 />       */}
-       {/* <Tela2 /> */}
-        {/* <Tela3 /> */}
-
-     </SafeAreaView>
+    </SafeAreaView>
   );
+}
+
+const screenOptions = {
+  headerTitleAlign: 'center',
+  headerStyle: false,
+  headerTitleStyle: {
+    fontWeight: 'bold',
+
+},
+
 }

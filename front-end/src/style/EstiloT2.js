@@ -7,8 +7,14 @@ export default StyleSheet.create({
         justifyContent: 'center'
     },
     titulo: {
-        alignItems: 'center',
-        marginTop: 35,
+        textAlign: 'center',
+        marginTop: 15,
+        fontSize: 25,
+        fontWeight: 'bold'
+    },
+    subTitulo: {
+        textAlign: 'center',
+
     },
     formulario: {
         flex: 3,
@@ -18,7 +24,9 @@ export default StyleSheet.create({
     txtInput: {
         backgroundColor: 'white',
         padding: 10,
-        textAlign: 'center'
+        textAlign: 'center',
+        marginBottom: 30,
+        borderRadius: 10
     },
     dependentes: {
         alignItems: 'center',
