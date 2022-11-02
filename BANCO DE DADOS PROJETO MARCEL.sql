@@ -39,7 +39,7 @@ cep_endereco VARCHAR(8) NOT NULL,
 insert into saf_cadastro_beneficiado (nome_morador,cpf_morador,email_morador,telefone_morador,data_nascimento_morador,
 renda_morador,dependentes_morador,cep_endereco)
 values 
-("rafaelzinho","65555555555","rolaebom@adoro.bom","551545454545","2005-08-21","10000","02","06785000");
+("rafaelzinho","65555555555","rafa@uol.bom","551545454545","2005-08-21","10000","02","06785000");
 
 ------------------------------------------
 
