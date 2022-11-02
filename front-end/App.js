@@ -16,27 +16,31 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator
         
-          initialRouteName='BemVindo'
+          initialRouteName='Tela1'
           screenOptions={screenOptions}
           
         >
           <Stack.Screen
-            name='BemVindo'
+            name='Tela1'
             component={Tela1}
             options={{
               title: "Boas Vindas",
               headerShown: false,
             }} />
           <Stack.Screen
-            name="Formulario"
+            name="Tela2"
             component={Tela2}
             options={{
-              title: 'Cadastro do Beneficiado'
+              title: 'Cadastro'
             }}
           />
           <Stack.Screen
-            name="Obrigado"
+            name="Tela3"
             component={Tela3}
+            options={{
+              title: 'Cadastro enviado',
+              headerShown: false,
+            }}
           />
         </Stack.Navigator>
       </NavigationContainer>

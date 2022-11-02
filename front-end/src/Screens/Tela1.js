@@ -23,23 +23,23 @@ export default ({ navigation }) => {
 
         <View style={EstiloT1.categorias} >
 
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Icon name='done' />
+          <View style={EstiloT1.viewIcons}>
+            <Icon name='done' color="blue" />
             <Text>Cesta Básica</Text>
           </View>
 
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Icon name='done' />
+          <View style={EstiloT1.viewIcons}>
+            <Icon name='done' color="blue" />
             <Text>Doação de Brinquedos</Text>
           </View>
 
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Icon name='done' />
+          <View style={EstiloT1.viewIcons}>
+            <Icon name='done' color="blue" />
             <Text>Sacola de Verdura</Text>
           </View>
 
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Icon name='done' />
+          <View style={EstiloT1.viewIcons}>
+            <Icon name='done' color="blue" />
             <Text>Doação em estoque</Text>
           </View>
         </View>
@@ -50,23 +50,23 @@ export default ({ navigation }) => {
         <Text style={EstiloT1.requisitos} >Requisitos: </Text>
         <View style={EstiloT1.categorias} >
 
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Icon name='done' />
+          <View style={EstiloT1.viewIcons}>
+            <Icon name='done' color="blue" />
             <Text>Cesta Básica</Text>
           </View>
 
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Icon name='done' />
+          <View style={EstiloT1.viewIcons}>
+            <Icon name='done' color="blue" />
             <Text>Doação de Brinquedos</Text>
           </View>
 
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Icon name='done' />
+          <View style={EstiloT1.viewIcons}>
+            <Icon name='done' color="blue" />
             <Text>Sacola de Verdura</Text>
           </View>
 
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <Icon name='done' />
+          <View style={EstiloT1.viewIcons}>
+            <Icon name='done' color="blue" />
             <Text>Doação em estoque</Text>
           </View>
         </View>
@@ -75,7 +75,7 @@ export default ({ navigation }) => {
 
       <View style={EstiloT1.viewInscricao} >
         <Text style={{ fontSize: 15 }} >Possui os requisitos necessários? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Formulario")} >
+        <TouchableOpacity onPress={() => navigation.navigate("Tela2")} >
           <Text style={{ color: 'blue' }} >Então clique aqui</Text>
         </TouchableOpacity>
       </View>

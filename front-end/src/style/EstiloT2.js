@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export default StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'gray',
+        backgroundColor: 'white',
         justifyContent: 'center'
     },
     titulo: {
@@ -47,25 +47,12 @@ export default StyleSheet.create({
         borderRadius: 10,
         backgroundColor: 'white'
     },
-    viewProximoBT: {
-        flex: 1,
-        width: 100,
-        height: 1,
-
-    },
-    proximoBT: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: 1,
-        backgroundColor: 'white',
-        color: 'green',
-        borderRadius: 60,
-        height: 100,
-        width: 250,
-        marginLeft: 80,
-        marginTop: 50,
-        marginBottom: 50,
+    salvarBT: {
+        backgroundColor: 'gray', 
+        padding: 15, 
+        alignItems: 'center', 
+        borderRadius: 60, 
+        marginHorizontal: 100,
 
     }
 })

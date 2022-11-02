@@ -21,8 +21,13 @@ export default StyleSheet.create({
     viewBeneficios: {
         flex: 4,
         marginBottom: 40,
-        marginLeft: 15,
-        maxHeight: 150
+        marginLeft: 35,
+        maxHeight: 150,
+    },
+    viewIcons: {
+        flexDirection: 'row',
+        alignItems: 'center', 
+        marginLeft: 30,
     },
     beneficios: {
         fontWeight: 'bold',
@@ -35,7 +40,7 @@ export default StyleSheet.create({
     },
     viewRequisitos: {
         flex: 4,
-        marginLeft: 15,
+        marginLeft: 35,
         maxHeight: 170,
         marginBottom: 25
 
