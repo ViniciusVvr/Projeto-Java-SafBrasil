@@ -48,7 +48,7 @@ export default StyleSheet.create({
         backgroundColor: 'white'
     },
     salvarBT: {
-        backgroundColor: 'gray', 
+        backgroundColor: 'black', 
         padding: 15, 
         alignItems: 'center', 
         borderRadius: 60, 

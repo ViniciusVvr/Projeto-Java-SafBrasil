@@ -9,16 +9,12 @@ import Tela3 from './src/Screens/Tela3'
 
 const Stack = createNativeStackNavigator();
 
+function NavegStack() {
+  return(
 
-export default function App() {
-  return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <NavigationContainer>
-        <Stack.Navigator
-        
-          initialRouteName='Tela1'
+    <Stack.Navigator
+    initialRouteName='Tela2'
           screenOptions={screenOptions}
-          
         >
           <Stack.Screen
             name='Tela1'
@@ -43,6 +39,14 @@ export default function App() {
             }}
           />
         </Stack.Navigator>
+    )
+}
+
+export default function App() {
+  return (
+    <SafeAreaView style={{ flex: 1 }}>
+      <NavigationContainer>
+        <NavegStack />
       </NavigationContainer>
 
     </SafeAreaView>
