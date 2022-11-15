@@ -1,11 +1,7 @@
 import React, { useEffect, useCallback } from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, View } from 'react-native';
 
-import Formulario from '../Components/Formulario';
-
-import EstiloT1 from "../style/EstiloT1";
 import EstiloT3 from "../style/EstiloT3";
-
 
 import { Icon } from '@rneui/themed'
 import { useFonts } from 'expo-font'

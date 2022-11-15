@@ -13,7 +13,7 @@ function NavegStack() {
   return(
 
     <Stack.Navigator
-    initialRouteName='Tela2'
+    initialRouteName='Tela1'
           screenOptions={screenOptions}
         >
           <Stack.Screen

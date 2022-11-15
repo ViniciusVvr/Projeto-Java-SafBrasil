@@ -42,7 +42,7 @@ export default StyleSheet.create({
         flex: 4,
         marginLeft: 35,
         maxHeight: 170,
-        marginBottom: 25
+        marginBottom: -50
 
     },
     requisitos: {
@@ -52,6 +52,7 @@ export default StyleSheet.create({
     viewInscricao: {
         flexDirection: 'row',
         marginLeft: 20,
+        marginTop: 30
     },  
     viewTermos:{
         flexDirection: 'row',

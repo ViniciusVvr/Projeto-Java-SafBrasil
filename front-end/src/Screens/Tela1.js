@@ -7,7 +7,16 @@ import {CheckBox1} from '../Components/CheckBox';
 
 export default ({ navigation }) => {
 
-  const [check, setCheck] = useState(true)
+  const [check, setCheck] = useState(false)
+
+  const valid = () => {
+    if(check == true){
+      navigation.navigate("Tela2")
+    } else {
+      alert("Termos não assinalada")
+    }
+
+  }
 
   return (
     <View style={EstiloT1.viewContainer} >
@@ -73,17 +82,18 @@ export default ({ navigation }) => {
 
       </View>
 
-      <View style={EstiloT1.viewInscricao} >
-        <Text style={{ fontSize: 15 }} >Possui os requisitos necessários? </Text>
-        <TouchableOpacity onPress={() => navigation.navigate("Tela2")} >
-          <Text style={{ color: 'blue' }} >Então clique aqui</Text>
-        </TouchableOpacity>
-      </View>
-
       <View style={EstiloT1.viewTermos} >
         <Text style={EstiloT1.termos} >Eu li e concordo em verder minha alma</Text>
         <CheckBox1 variavel={check} func={() => setCheck(!check)} estilo={{height: '40%', backgroundColor: 'rgba(255, 0, 255, 0.0)', marginTop: 90 }} /> 
       </View>
+
+      <View style={EstiloT1.viewInscricao} >
+        <Text style={{ fontSize: 15 }} >Possui os requisitos necessários? </Text>
+        <TouchableOpacity onPress={valid} >
+          <Text style={{ color: 'blue' }} >Então clique aqui</Text>
+        </TouchableOpacity>
+      </View>
+
     </View>
   )
 }
