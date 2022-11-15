@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import { SafeAreaView, View, TouchableOpacity, Text, TextInput } from 'react-native';
+import { SafeAreaView, View, TouchableOpacity, Text } from 'react-native';
 
 import EstiloT2 from '../style/EstiloT2';
 
 import { Icon, Input } from '@rneui/themed';
-
 
 export default function tela1({ navigation }) {
 
@@ -25,6 +24,7 @@ export default function tela1({ navigation }) {
   const [errorCpf, setErrorCpf] = useState(null);
   const [errorNome, setErrorNome] = useState(null);
 
+
   function valid() {
     let error = false
     const validEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -32,28 +32,28 @@ export default function tela1({ navigation }) {
       setErrorNome("Preencha seu Nome")
       error = true
     }
-    if (cpf == null) {
-      setErrorCpf("Preencha CPF corretamente")
+    if (cpf == null  ) {
+      setErrorCpf("Preencha CPF")
       error = true
     }
     if (!String(email).toLowerCase().match(validEmail)) {
-      setErrorEmail("Preencha E-mail corretamente")
+      setErrorEmail("Oops, ouve um erro! Preencha seu E-mail corretamente ")
       error = true
     }
     if (tel == null) {
-      setErrorTel("Oops, ouve um erro! número de telefone inválido")
+      setErrorTel("Preencha seu telefone")
       error = true
     }
     if (nasc == null) {
-      setErrorNasc("Oops, ouve um erro! Data de Nascimento inválido")
+      setErrorNasc("Preencha sua data de nascimento")
       error = true
     }
     if (renda == null) {
-      setErrorRend("Oops, ouve um erro! Renda inválido")
+      setErrorRend("Informe sua renda")
       error = true
     }
     if (cep == null) {
-      setErrorCep("Oops, ouve um erro! CEP inválido")
+      setErrorCep("Preencha seu CPF")
       error = true
     }
     return !error
@@ -61,7 +61,7 @@ export default function tela1({ navigation }) {
 
   const salvou = () => {
     if (valid()) {
-       navigation.navigate("Tela3", { paramsKey: tel })
+       navigation.navigate("Tela3", { paramKey: tel })
     }
   }
 
