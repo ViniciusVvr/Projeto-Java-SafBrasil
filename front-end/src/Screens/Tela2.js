@@ -5,6 +5,8 @@ import EstiloT2 from '../style/EstiloT2';
 
 import { Icon, Input } from '@rneui/themed';
 
+import axios from 'axios';
+
 export default function tela1({ navigation }) {
 
   const [nome, setNome] = useState(null);
@@ -23,6 +25,21 @@ export default function tela1({ navigation }) {
   const [errorEmail, setErrorEmail] = useState(null);
   const [errorCpf, setErrorCpf] = useState(null);
   const [errorNome, setErrorNome] = useState(null);
+
+  const state = {
+    nome: nome,
+    cpf: cpf,
+    email: email
+  }
+
+  const onRequest = async() => {
+    try{
+      const res = await axios.post('http://localhost:8080/usuario', { ...state });
+      return res.data;
+    }catch (error) {
+      console.log('erro: ', error)
+    }
+  };
 
 
   function valid() {
@@ -228,7 +245,8 @@ export default function tela1({ navigation }) {
 
 
 
-        <TouchableOpacity style={EstiloT2.salvarBT} onPress={salvou} >
+        {/* <TouchableOpacity style={EstiloT2.salvarBT} onPress={salvou} > */}
+        <TouchableOpacity style={EstiloT2.salvarBT} onPress={onRequest} >
           <Text style={{ color: 'white' }} >Salvar</Text>
         </TouchableOpacity>
 
