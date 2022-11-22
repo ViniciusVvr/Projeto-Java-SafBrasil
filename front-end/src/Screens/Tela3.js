@@ -8,7 +8,7 @@ import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen';
 
 
-export default ({ route }) => {
+export default function Tela3 ({ route }) {
   const [fontsLoaded] = useFonts({
     'freescpt': require('../../assets/fonts/freescpt.ttf'),
   });

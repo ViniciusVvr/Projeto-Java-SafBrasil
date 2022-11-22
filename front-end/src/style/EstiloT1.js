@@ -4,6 +4,7 @@ export default StyleSheet.create({
 
     viewContainer: {
         flex: 1,
+    
     },
     viewTitulo: {
         margin: 50
@@ -11,11 +12,14 @@ export default StyleSheet.create({
     titulo: {
         textAlign: 'center',
         marginTop: 15,
-        fontSize: 25,
-        fontWeight: 'bold'
+        fontSize: 27,
+        fontWeight: 'bold',
+        color: 'white'
     },
     subTitulo: {
         textAlign: 'center',
+        color: 'white',
+        fontSize: 17
 
     },
     viewBeneficios: {
@@ -31,9 +35,13 @@ export default StyleSheet.create({
     },
     beneficios: {
         fontWeight: 'bold',
-        fontSize: 19
-
+        fontSize: 23,
+        color: 'white'
     },  
+    txtReq: {
+        color: 'white',
+        fontSize: 20
+    },
     categorias: {
         fontSize: 16,
         marginTop: 8,
@@ -47,21 +55,36 @@ export default StyleSheet.create({
     },
     requisitos: {
         fontWeight: 'bold',
-        fontSize: 19
+        fontSize: 23,
+        color: 'white'
+    },
+    viewTxtTermos: {
+        marginTop: 100,
+        marginLeft: 20,
+    },
+    txtTermos: {
+        color: '#ff872a',
+        fontSize: 17
     },
     viewInscricao: {
         flexDirection: 'row',
         marginLeft: 20,
-        marginTop: 30
+        marginTop: 40
     },  
     viewTermos:{
         flexDirection: 'row',
     },  
     termos: {
-        marginTop: 100,
+        marginTop: 50,
         marginLeft: 20,
         fontSize: 14,
         fontWeight: 'bold',
-        
+        color: 'white'
+    },
+    check: {
+        height: '50%', 
+        backgroundColor: 'rgba(255, 0, 255, 0.0)', 
+        marginTop: 40
     }
+
 })

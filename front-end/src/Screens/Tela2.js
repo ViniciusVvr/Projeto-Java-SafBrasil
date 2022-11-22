@@ -7,7 +7,7 @@ import { Icon, Input } from '@rneui/themed';
 
 import axios from 'axios';
 
-export default function tela1({ navigation }) {
+export default function Tela2({ navigation }) {
 
   const [nome, setNome] = useState(null);
   const [cpf, setCpf] = useState(null);
@@ -29,12 +29,17 @@ export default function tela1({ navigation }) {
   const state = {
     nome: nome,
     cpf: cpf,
-    email: email
+    email: email,
+    telefone: tel,
+    dataNascimento: nasc,
+    renda: renda,
+    dependentes: depend,
+    cep: cep
   }
 
   const onRequest = async() => {
     try{
-      const res = await axios.post('http://localhost:8080/usuario', { ...state });
+      var res = await axios.post('https://api.expo.dev/', { ...state });
       return res.data;
     }catch (error) {
       console.log('erro: ', error)
@@ -78,7 +83,8 @@ export default function tela1({ navigation }) {
 
   const salvou = () => {
     if (valid()) {
-       navigation.navigate("Tela3", { paramKey: tel })
+      navigation.navigate("Tela3", { paramKey: tel })
+      onRequest
     }
   }
 
@@ -246,7 +252,7 @@ export default function tela1({ navigation }) {
 
 
         {/* <TouchableOpacity style={EstiloT2.salvarBT} onPress={salvou} > */}
-        <TouchableOpacity style={EstiloT2.salvarBT} onPress={onRequest} >
+        <TouchableOpacity style={EstiloT2.salvarBT} onPress={salvou} >
           <Text style={{ color: 'white' }} >Salvar</Text>
         </TouchableOpacity>
 
