@@ -6,14 +6,16 @@ export default StyleSheet.create({
         backgroundColor: 'white',
         justifyContent: 'center'
     },
-    titulo: {
+    viewTitle: {
         textAlign: 'center',
         marginTop: 15,
         fontSize: 25,
         fontWeight: 'bold'
     },
-    subTitulo: {
+    txtTitle: {
         textAlign: 'center',
+        fontSize: 22,
+        color: 'white'
 
     },
     formulario: {
@@ -28,31 +30,14 @@ export default StyleSheet.create({
         marginBottom: 30,
         borderRadius: 10
     },
-    dependentes: {
-        alignItems: 'center',
-        flex: 1,
-    },
-    simBT: {
-        width: 17,
-        height: 17,
-        marginRight: 5,
-        borderRadius: 10,
-        backgroundColor: 'white'
-    },
-    naoBT: {
-        width: 17,
-        height: 17,
-        marginRight: 6,
-        marginLeft: 20,
-        borderRadius: 10,
-        backgroundColor: 'white'
-    },
     salvarBT: {
-        backgroundColor: 'black', 
+        backgroundColor: '#98ddc1', 
         padding: 15, 
         alignItems: 'center', 
         borderRadius: 60, 
         marginHorizontal: 100,
-
+    },
+    txtSalvarBT: {
+        fontSize: 17,
     }
 })

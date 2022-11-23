@@ -27,7 +27,8 @@ function NavegStack() {
             name="Tela2"
             component={Tela2}
             options={{
-              title: 'Cadastro'
+              title: 'Cadastro',
+              headerShown: false,
             }}
           />
           <Stack.Screen
@@ -58,7 +59,6 @@ const screenOptions = {
   headerStyle: false,
   headerTitleStyle: {
     fontWeight: 'bold',
-
 },
 
 }

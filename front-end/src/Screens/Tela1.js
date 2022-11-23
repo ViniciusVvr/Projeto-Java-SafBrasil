@@ -1,26 +1,27 @@
 import React, { useState } from 'react';
-import { Text, TouchableOpacity, View, ImageBackground } from 'react-native';
-import EstiloT1 from "../style/EstiloT1";
-import { Icon } from '@rneui/themed'
-import { CheckBox1 } from '../Components/CheckBox';
-import { Alert } from 'react-native';
+import { Text, TouchableOpacity, View, ImageBackground, Alert } from 'react-native';
 
-const image = "../../assets/images/bg-front-end.png"
+import EstiloT1 from "../style/EstiloT1";
+
+import { Icon } from '@rneui/themed'
+
+import { CheckBox1 } from '../Components/CheckBox';
 
 
 export default function Tela1({ navigation }) {
-
+  
   const [check, setCheck] = useState(false)
-
+  
   const valid = () => {
     if (check == true) {
       navigation.navigate("Tela2")
     } else {
       console.warn("Termos não assinalada")
     }
-
   }
 
+  const image = "../../assets/images/bg-front-end.png"
+  
   return (
     <ImageBackground
       style={EstiloT1.viewContainer}
@@ -40,22 +41,22 @@ export default function Tela1({ navigation }) {
         <View style={EstiloT1.categorias} >
 
           <View style={EstiloT1.viewIcons}>
-            <Icon name='done' color="#34dd25" />
+            <Icon name='done' color="#34dd25" size={28} />
             <Text style={EstiloT1.txtReq} >Cesta Básica</Text>
           </View >
 
           <View style={EstiloT1.viewIcons}>
-            <Icon name='done' color="#34dd25" />
+            <Icon name='done' color="#34dd25" size={28} />
             <Text style={EstiloT1.txtReq} >Doação de Brinquedos</Text>
           </View>
 
           <View style={EstiloT1.viewIcons}>
-            <Icon name='done' color="#34dd25" />
+            <Icon name='done' color="#34dd25" size={28} />
             <Text style={EstiloT1.txtReq}>Sacola de Verdura</Text>
           </View>
 
           <View style={EstiloT1.viewIcons}>
-            <Icon name='done' color="#34dd25" />
+            <Icon name='done' color="#34dd25" size={28} />
             <Text style={EstiloT1.txtReq}>Doação em estoque</Text>
           </View>
         </View>
@@ -67,22 +68,22 @@ export default function Tela1({ navigation }) {
         <View style={EstiloT1.categorias} >
 
           <View style={EstiloT1.viewIcons}>
-            <Icon name='done' color="#34dd25" />
+            <Icon name='done' color="#34dd25" size={28} />
             <Text style={EstiloT1.txtReq}>Cesta Básica</Text>
           </View>
 
           <View style={EstiloT1.viewIcons}>
-            <Icon name='done' color="#34dd25" />
+            <Icon name='done' color="#34dd25" size={28} />
             <Text style={EstiloT1.txtReq}>Doação de Brinquedos</Text>
           </View>
 
           <View style={EstiloT1.viewIcons}>
-            <Icon name='done' color="#34dd25" />
+            <Icon name='done' color="#34dd25" size={28} />
             <Text style={EstiloT1.txtReq}>Sacola de Verdura</Text>
           </View>
 
           <View style={EstiloT1.viewIcons}>
-            <Icon name='done' color="#34dd25" />
+            <Icon name='done' color="#34dd25" size={28} />
             <Text style={EstiloT1.txtReq}>Doação em estoque</Text>
           </View>
         </View>
@@ -95,7 +96,8 @@ export default function Tela1({ navigation }) {
           "(1) Somente nota maxima no projeto;\n(2) Marcel no próximo semestre;\n(3) Elogios ao fim :). ",
           [
             {
-              text: 'Recusar'
+              text: 'Recusar',
+              onPress: () => setCheck(false)
             },
             {
               text: 'Aceitar',
@@ -113,11 +115,12 @@ export default function Tela1({ navigation }) {
       </View>
 
       <View style={EstiloT1.viewInscricao} >
-        <Text style={{ fontSize: 15, color: 'white' }} >Possui os requisitos necessários? </Text>
-        <TouchableOpacity onPress={valid} >
-          <Text style={{ color: '#34dd25' }} >Então clique aqui</Text>
-        </TouchableOpacity>
+        <Text style={EstiloT1.txtInscricao} >Possui os requisitos necessários? </Text>
       </View>
+
+        <TouchableOpacity onPress={valid} style={EstiloT1.salvarBT} >
+          <Text style={EstiloT1.txtSalvarBT} >Então clique aqui</Text>
+        </TouchableOpacity>
 
     </ImageBackground>
   )

@@ -59,32 +59,47 @@ export default StyleSheet.create({
         color: 'white'
     },
     viewTxtTermos: {
-        marginTop: 100,
+        marginTop: 80,
         marginLeft: 20,
     },
     txtTermos: {
-        color: '#ff872a',
-        fontSize: 17
-    },
-    viewInscricao: {
-        flexDirection: 'row',
-        marginLeft: 20,
-        marginTop: 40
+        color: 'yellow',
+        fontSize: 20
     },  
     viewTermos:{
         flexDirection: 'row',
     },  
     termos: {
-        marginTop: 50,
+        marginTop: 30,
         marginLeft: 20,
         fontSize: 14,
         fontWeight: 'bold',
         color: 'white'
     },
     check: {
-        height: '50%', 
+        height: '60%', 
         backgroundColor: 'rgba(255, 0, 255, 0.0)', 
-        marginTop: 40
+        marginTop: 20,
+    },
+    viewInscricao: {
+        flexDirection: 'row',
+        marginLeft: 20,
+        marginTop: 30
+    },
+    txtInscricao: { 
+        fontSize: 19, 
+        color: 'white' 
+    },
+    salvarBT: {
+        backgroundColor: '#98ddc1', 
+        padding: 15, 
+        alignItems: 'center', 
+        borderRadius: 60, 
+        marginHorizontal: 100,
+        marginTop: 25
+    },
+    txtSalvarBT: {
+        fontSize: 17,
     }
 
 })

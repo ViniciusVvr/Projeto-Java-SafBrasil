@@ -1,5 +1,5 @@
 import React, { useEffect, useCallback } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, ImageBackground } from 'react-native';
 
 import EstiloT3 from "../style/EstiloT3";
 
@@ -7,8 +7,9 @@ import { Icon } from '@rneui/themed'
 import { useFonts } from 'expo-font'
 import * as SplashScreen from 'expo-splash-screen';
 
+const image = "../../assets/images/bg-front-end.png"
 
-export default function Tela3 ({ route }) {
+export default function Tela3({ route }) {
   const [fontsLoaded] = useFonts({
     'freescpt': require('../../assets/fonts/freescpt.ttf'),
   });
@@ -30,43 +31,40 @@ export default function Tela3 ({ route }) {
     return null;
   }
 
-
   return (
-    <View style={EstiloT3.viewContainer} >
+    <ImageBackground
+      source={require(image)}
+      resizeMode="cover"
+      style={EstiloT3.container} >
 
-      <View style={{marginTop: 25}} >
       <View style={EstiloT3.viewTitulo} >
         <Text style={EstiloT3.titulo} >        Cadastro Finalizado</Text>
-        <Icon name='done' color="green" size={50} />
-      </View>
-      </View>
-
-      <View style={{ alignItems: 'center', marginBottom: 40 }} onLayout={onLayoutRootView}>
-        <Text style={{ fontFamily: 'freescpt', fontSize: 88, color: '#daedff', textAlign: 'center' }}>Obrigado pelo Cadastro!</Text>
+        <Icon name='done' color="#34dd25" size={50} />
       </View>
 
-      <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginLeft: 30, marginBottom: 40 }} >
-        <Text style={{color: '#daedff', fontSize: 18}} >Fique de olho no número: </Text>
-        <Text style={{ color: "green", fontSize: 18}} >{route.params.paramKey}. </Text>
-        <Text style={{color: '#daedff', fontSize: 18}} >Enviaremos o resultado por lá! </Text>
+
+      <View style={EstiloT3.viewObgCadastro} onLayout={onLayoutRootView}>
+        <Text style={EstiloT3.txtObjCadastro}>Obrigado pelo Cadastro!</Text>
       </View>
 
-      <View style={{ margin: 25, alignItems: 'center', marginBottom: 50 }} >
-        <Text style={{ color: '#daedff', textAlign: 'center', fontSize: 17 }} >
+      <View style={EstiloT3.viewResult} >
+        <Text style={EstiloT3.txt1Result} >Fique de olho no número: </Text>
+        <Text style={EstiloT3.txt2Result} >{route.params.paramKey} </Text>
+        <Text style={EstiloT3.txt1Result} >Enviaremos o resultado por lá! </Text>
+      </View>
+
+      <View style={EstiloT3.viewRecado} >
+        <Text style={EstiloT3.txtRecado} >
           Um carinhoso recado de agradecimento por participar deste projeto universidade FECAF.
         </Text>
       </View>
-      
-      <View style={{ margin: 25, alignItems: 'center' }} >
-        <Text style={{ color: '#daedff', textAlign: 'center', fontSize: 17 }} >
+
+      <View style={EstiloT3.viewOMDP} >
+        <Text style={EstiloT3.txtOMDP} >
           {"Sinceramente,\nOs melhores dos piores."}
         </Text>
       </View>
 
-
-
-
-
-    </View>
+    </ImageBackground>
   )
 }

@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { SafeAreaView, View, TouchableOpacity, Text } from 'react-native';
+import { View, TouchableOpacity, Text, ImageBackground } from 'react-native';
 
 import EstiloT2 from '../style/EstiloT2';
 
 import { Icon, Input } from '@rneui/themed';
 
 import axios from 'axios';
+
+// import valid from '../Components/Validacao'
+
+const image = "../../assets/images/bg-front-end.png"
 
 export default function Tela2({ navigation }) {
 
@@ -37,15 +41,14 @@ export default function Tela2({ navigation }) {
     cep: cep
   }
 
-  const onRequest = async() => {
-    try{
+  const onRequest = async () => {
+    try {
       var res = await axios.post('https://api.expo.dev/', { ...state });
       return res.data;
-    }catch (error) {
+    } catch (error) {
       console.log('erro: ', error)
     }
   };
-
 
   function valid() {
     let error = false
@@ -54,7 +57,7 @@ export default function Tela2({ navigation }) {
       setErrorNome("Preencha seu Nome")
       error = true
     }
-    if (cpf == null  ) {
+    if (cpf == null) {
       setErrorCpf("Preencha CPF")
       error = true
     }
@@ -89,10 +92,18 @@ export default function Tela2({ navigation }) {
   }
 
   return (
-    <SafeAreaView style={EstiloT2.container}>
+    <ImageBackground
+      source={require(image)}
+      resizeMode="cover"
+      style={EstiloT2.container}>
+
       <View style={EstiloT2.formulario} >
 
-        <View  >
+      <View style={EstiloT2.viewTitle} >
+        <Text style={EstiloT2.txtTitle} >Cadastro</Text>
+      </View>
+
+        <View>
           <Input
             placeholder='Nome Completo*'
             inputStyle={{ marginTop: 15 }}
@@ -106,7 +117,7 @@ export default function Tela2({ navigation }) {
             leftIcon={
               <Icon
                 name='person-outline'
-                color="black"
+                color="white"
                 type='ionicon'
                 style={{ marginRight: 15, marginTop: 15 }} />
             } />
@@ -126,7 +137,7 @@ export default function Tela2({ navigation }) {
             leftIcon={
               <Icon
                 name='keypad-outline'
-                color="black"
+                color="white"
                 type='ionicon'
                 style={{ marginRight: 15, marginTop: 15 }} />
             } />
@@ -146,7 +157,7 @@ export default function Tela2({ navigation }) {
             leftIcon={
               <Icon
                 name='mail-outline'
-                color="black"
+                color="white"
                 type='ionicon'
                 style={{ marginRight: 15, marginTop: 15 }} />
             } />
@@ -166,7 +177,7 @@ export default function Tela2({ navigation }) {
             leftIcon={
               <Icon
                 name='phone-portrait-outline'
-                color="black"
+                color="white"
                 type='ionicon'
                 style={{ marginRight: 15, marginTop: 15 }} />
             } />
@@ -186,7 +197,7 @@ export default function Tela2({ navigation }) {
             leftIcon={
               <Icon
                 name='calendar-outline'
-                color="black"
+                color="white"
                 type='ionicon'
                 style={{ marginRight: 15, marginTop: 15 }} />
             } />
@@ -206,7 +217,7 @@ export default function Tela2({ navigation }) {
             leftIcon={
               <Icon
                 name='wallet-outline'
-                color="black"
+                color="white"
                 type='ionicon'
                 style={{ marginRight: 15, marginTop: 15 }} />
             } />
@@ -223,7 +234,7 @@ export default function Tela2({ navigation }) {
             leftIcon={
               <Icon
                 name='people-circle-outline'
-                color="black"
+                color="white"
                 type='ionicon'
                 style={{ marginRight: 15, marginTop: 15 }} />
             } />
@@ -243,20 +254,17 @@ export default function Tela2({ navigation }) {
             leftIcon={
               <Icon
                 name='map-outline'
-                color="black"
+                color="white"
                 type='ionicon'
                 style={{ marginRight: 15, marginTop: 15 }} />
             } />
         </View>
 
-
-
-        {/* <TouchableOpacity style={EstiloT2.salvarBT} onPress={salvou} > */}
         <TouchableOpacity style={EstiloT2.salvarBT} onPress={salvou} >
-          <Text style={{ color: 'white' }} >Salvar</Text>
+          <Text style={EstiloT2.txtSalvarBT} >Salvar</Text>
         </TouchableOpacity>
 
       </View>
-    </SafeAreaView>
+    </ImageBackground>
   );
 }
