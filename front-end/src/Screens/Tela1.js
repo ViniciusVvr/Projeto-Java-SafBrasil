@@ -9,25 +9,25 @@ import { CheckBox1 } from '../Components/CheckBox';
 
 
 export default function Tela1({ navigation }) {
-  
+
   const [check, setCheck] = useState(false)
-  
+
   const valid = () => {
     if (check == true) {
       navigation.navigate("Tela2")
     } else {
-      console.warn("Termos não assinalada")
+      Alert.alert("Termos não assinalada")
     }
   }
 
   const image = "../../assets/images/bg-front-end.png"
-  
+
   return (
     <ImageBackground
       style={EstiloT1.viewContainer}
       source={require(image)}
       resizeMode="cover"
-      >
+    >
 
       <View style={EstiloT1.viewTitulo} >
         <Text style={EstiloT1.titulo} >Seja bem vindo  </Text>
@@ -42,50 +42,52 @@ export default function Tela1({ navigation }) {
 
           <View style={EstiloT1.viewIcons}>
             <Icon name='done' color="#34dd25" size={28} />
-            <Text style={EstiloT1.txtReq} >Cesta Básica</Text>
+            <Text style={EstiloT1.txtReq} >Cesta Básica;</Text>
           </View >
 
           <View style={EstiloT1.viewIcons}>
             <Icon name='done' color="#34dd25" size={28} />
-            <Text style={EstiloT1.txtReq} >Doação de Brinquedos</Text>
+            <Text style={EstiloT1.txtReq} >Doação de Brinquedos;</Text>
           </View>
 
           <View style={EstiloT1.viewIcons}>
             <Icon name='done' color="#34dd25" size={28} />
-            <Text style={EstiloT1.txtReq}>Sacola de Verdura</Text>
+            <Text style={EstiloT1.txtReq}>Sacola de Verdura;</Text>
           </View>
 
           <View style={EstiloT1.viewIcons}>
             <Icon name='done' color="#34dd25" size={28} />
-            <Text style={EstiloT1.txtReq}>Doação em estoque</Text>
+            <Text style={EstiloT1.txtReq}>Doações em estoque.</Text>
           </View>
         </View>
 
       </View>
 
       <View style={EstiloT1.viewRequisitos} >
-        <Text style={EstiloT1.requisitos} >Requisitos: </Text>
+
+        <Text style={EstiloT1.requisitos} >Quem tera acesso ao auxilio? </Text>
+        <Text style={{ fontWeight: "bold", fontSize: 19, color: "white" }} >   Pessoas:  </Text>
+
         <View style={EstiloT1.categorias} >
-
           <View style={EstiloT1.viewIcons}>
             <Icon name='done' color="#34dd25" size={28} />
-            <Text style={EstiloT1.txtReq}>Cesta Básica</Text>
+            <Text style={EstiloT1.txtReq}>Idosas;</Text>
           </View>
 
           <View style={EstiloT1.viewIcons}>
             <Icon name='done' color="#34dd25" size={28} />
-            <Text style={EstiloT1.txtReq}>Doação de Brinquedos</Text>
+            <Text style={EstiloT1.txtReq}>Com algum tipo de deficiencia;</Text>
           </View>
 
           <View style={EstiloT1.viewIcons}>
             <Icon name='done' color="#34dd25" size={28} />
-            <Text style={EstiloT1.txtReq}>Sacola de Verdura</Text>
+            <Text style={EstiloT1.txtReq}>Abaixo do salário minímo;</Text>
           </View>
 
-          <View style={EstiloT1.viewIcons}>
+          {/* <View style={EstiloT1.viewIcons}>
             <Icon name='done' color="#34dd25" size={28} />
             <Text style={EstiloT1.txtReq}>Doação em estoque</Text>
-          </View>
+          </View> */}
         </View>
 
       </View>
@@ -105,7 +107,7 @@ export default function Tela1({ navigation }) {
             }
           ]
         )} >
-        <Text style={EstiloT1.txtTermos} >Termos de uso do nosso aplicativo</Text>
+          <Text style={EstiloT1.txtTermos} >Termos de uso do nosso aplicativo</Text>
         </TouchableOpacity>
       </View>
 
@@ -118,9 +120,9 @@ export default function Tela1({ navigation }) {
         <Text style={EstiloT1.txtInscricao} >Possui os requisitos necessários? </Text>
       </View>
 
-        <TouchableOpacity onPress={valid} style={EstiloT1.salvarBT} >
-          <Text style={EstiloT1.txtSalvarBT} >Então clique aqui</Text>
-        </TouchableOpacity>
+      <TouchableOpacity onPress={valid} style={EstiloT1.salvarBT} >
+        <Text style={EstiloT1.txtSalvarBT} >Então clique aqui</Text>
+      </TouchableOpacity>
 
     </ImageBackground>
   )

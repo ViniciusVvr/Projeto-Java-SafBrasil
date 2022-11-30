@@ -25,6 +25,7 @@
     "react-dom": "18.0.0",
     "react-native": "0.69.6",
     "react-native-bouncy-checkbox": "^3.0.5",
+    "react-native-masked-text": "^1.13.0",
     "react-native-vector-icons": "^9.2.0",
     "react-native-web": "~0.18.7"
   },

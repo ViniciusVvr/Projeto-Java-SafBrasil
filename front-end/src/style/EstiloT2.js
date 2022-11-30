@@ -23,12 +23,23 @@ export default StyleSheet.create({
         margin: 24,
         justifyContent: 'space-around'
     },
+    viewTxtInput: {
+        flexDirection: 'row'
+    },
     txtInput: {
-        backgroundColor: 'white',
+        flex: 1,
+        borderColor: 'white',
+        borderBottomWidth: 1,
+        borderStyle: 'solid',
         padding: 10,
-        textAlign: 'center',
         marginBottom: 30,
-        borderRadius: 10
+        color: 'white'
+    },
+    menssagemErro: {
+        alignSelf: 'flex-start',
+        marginLeft: 15,
+        color: '#eb272f',
+        marginTop: -30
     },
     salvarBT: {
         backgroundColor: '#98ddc1', 
@@ -39,5 +50,6 @@ export default StyleSheet.create({
     },
     txtSalvarBT: {
         fontSize: 17,
-    }
+    },
+    
 })

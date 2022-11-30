@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { View, TouchableOpacity, Text, ImageBackground } from 'react-native';
+import { View, TouchableOpacity, Text, ImageBackground, TextInput } from 'react-native';
+
+import { TextInputMask } from 'react-native-masked-text'
 
 import EstiloT2 from '../style/EstiloT2';
 
-import { Icon, Input } from '@rneui/themed';
+import { Icon } from '@rneui/themed';
 
 import axios from 'axios';
 
@@ -22,13 +24,14 @@ export default function Tela2({ navigation }) {
   const [depend, setDepend] = useState(null);
   const [cep, setCep] = useState(null);
   const [errorCep, setErrorCep] = useState(null);
-  const [errorDepend, setErrorDepend] = useState(null);
   const [errorRend, setErrorRend] = useState(null);
   const [errorNasc, setErrorNasc] = useState(null);
   const [errorTel, setErrorTel] = useState(null);
   const [errorEmail, setErrorEmail] = useState(null);
   const [errorCpf, setErrorCpf] = useState(null);
   const [errorNome, setErrorNome] = useState(null);
+
+  let cpfField = null
 
   const state = {
     nome: nome,
@@ -53,19 +56,19 @@ export default function Tela2({ navigation }) {
   function valid() {
     let error = false
     const validEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    if (nome == null) {
+    if (nome == null || nome < 15) {
       setErrorNome("Preencha seu Nome")
       error = true
     }
-    if (cpf == null) {
-      setErrorCpf("Preencha CPF")
+    if (!cpfField.isValid()) {
+      setErrorCpf("Preencha um CPF válido!")
       error = true
     }
-    if (!String(email).toLowerCase().match(validEmail)) {
+    if (!String(email).toLowerCase().trim().match(validEmail)) {
       setErrorEmail("Oops, ouve um erro! Preencha seu E-mail corretamente ")
       error = true
     }
-    if (tel == null) {
+    if (tel == null || String(tel).length < 15) {
       setErrorTel("Preencha seu telefone")
       error = true
     }
@@ -99,166 +102,177 @@ export default function Tela2({ navigation }) {
 
       <View style={EstiloT2.formulario} >
 
-      <View style={EstiloT2.viewTitle} >
-        <Text style={EstiloT2.txtTitle} >Cadastro</Text>
-      </View>
+        <View style={EstiloT2.viewTitle} >
+          <Text style={EstiloT2.txtTitle} >Cadastro</Text>
+        </View>
 
-        <View>
-          <Input
+        <View style={EstiloT2.viewTxtInput} >
+          <Icon
+            name='person-outline'
+            color="white"
+            type='ionicon'
+            style={{ marginRight: 10, marginTop: 15, marginLeft: 10 }} />
+          <TextInput
             placeholder='Nome Completo*'
-            inputStyle={{ marginTop: 15 }}
-            keyboardType=""
-            errorMessage={errorNome}
+            placeholderTextColor={'#d6d6d6'}
             value={nome}
+            style={EstiloT2.txtInput}
+            keyboardType=""
             onChangeText={value => {
               setNome(value)
               setErrorNome(null)
             }}
-            leftIcon={
-              <Icon
-                name='person-outline'
-                color="white"
-                type='ionicon'
-                style={{ marginRight: 15, marginTop: 15 }} />
-            } />
+          />
         </View>
+          <Text style={EstiloT2.menssagemErro} >{errorNome}</Text>
 
-        <View  >
-          <Input
+        <View style={EstiloT2.viewTxtInput} >
+          <Icon
+            name='keypad-outline'
+            color="white"
+            type='ionicon'
+            style={{ marginRight: 10, marginTop: 15, marginLeft: 10 }} />
+          <TextInputMask
+            type={'cpf'}
             placeholder='CPF*'
-            inputStyle={{ marginTop: 15 }}
-            keyboardType="numeric"
-            errorMessage={errorCpf}
+            placeholderTextColor={'#d6d6d6'}
+            value={cpf}
             onChangeText={value => {
               setCpf(value)
               setErrorCpf(null)
             }}
-            value={cpf}
-            leftIcon={
-              <Icon
-                name='keypad-outline'
-                color="white"
-                type='ionicon'
-                style={{ marginRight: 15, marginTop: 15 }} />
-            } />
-        </View>
-
-        <View >
-          <Input
-            placeholder='Email*'
+            keyboardType="numeric"
             inputStyle={{ marginTop: 15 }}
+            style={EstiloT2.txtInput}
+            ref={(ref) => cpfField = ref}
+          />
+        </View>
+        <Text style={EstiloT2.menssagemErro} >{errorCpf}</Text>
+
+        <View style={EstiloT2.viewTxtInput} >
+          <Icon
+            name='mail-outline'
+            color="white"
+            type='ionicon'
+            style={{ marginRight: 10, marginTop: 15, marginLeft: 10 }} />
+          <TextInput
+            placeholder='Email*'
+            placeholderTextColor={'#d6d6d6'}
+            value={email}
+            style={EstiloT2.txtInput}
             keyboardType="email-address"
-            errorMessage={errorEmail}
             onChangeText={value => {
               setEmail(value)
               setErrorEmail(null)
             }}
-            value={email}
-            leftIcon={
-              <Icon
-                name='mail-outline'
-                color="white"
-                type='ionicon'
-                style={{ marginRight: 15, marginTop: 15 }} />
-            } />
+          />
         </View>
+          <Text style={EstiloT2.menssagemErro} >{errorEmail}</Text>
 
-        <View  >
-          <Input
+        <View style={EstiloT2.viewTxtInput} >
+          <Icon
+            name='phone-portrait-outline'
+            color="white"
+            type='ionicon'
+            style={{ marginRight: 10, marginTop: 15, marginLeft: 10 }} />
+          <TextInputMask
+            type={'cel-phone'}
             placeholder='Telefone*'
-            inputStyle={{ marginTop: 15 }}
-            keyboardType="numeric"
-            errorMessage={errorTel}
+            placeholderTextColor={'#d6d6d6'}
+            value={tel}
             onChangeText={value => {
               setTel(value)
               setErrorTel(null)
             }}
-            value={tel}
-            leftIcon={
-              <Icon
-                name='phone-portrait-outline'
-                color="white"
-                type='ionicon'
-                style={{ marginRight: 15, marginTop: 15 }} />
-            } />
-        </View>
-
-        <View  >
-          <Input
-            placeholder='Data de Nascimento*'
-            inputStyle={{ marginTop: 15 }}
             keyboardType="numeric"
-            errorMessage={errorNasc}
+            inputStyle={{ marginTop: 15 }}
+            style={EstiloT2.txtInput}
+          />
+        </View>
+        <Text style={EstiloT2.menssagemErro} >{errorTel}</Text>
+
+        <View style={EstiloT2.viewTxtInput} >
+          <Icon
+            name='calendar-outline'
+            color="white"
+            type='ionicon'
+            style={{ marginRight: 10, marginTop: 15, marginLeft: 10 }} />
+          <TextInputMask
+            type={'datetime'}
+            options={{
+              format: 'DD/MM/YYYY'
+            }}
+            placeholder='Data de nascismento*'
+            placeholderTextColor={'#d6d6d6'}
+            value={nasc}
             onChangeText={value => {
               setNasc(value)
               setErrorNasc(null)
             }}
-            value={nasc}
-            leftIcon={
-              <Icon
-                name='calendar-outline'
-                color="white"
-                type='ionicon'
-                style={{ marginRight: 15, marginTop: 15 }} />
-            } />
-        </View>
-
-        <View  >
-          <Input
-            placeholder='Renda Atual*'
-            inputStyle={{ marginTop: 15 }}
             keyboardType="numeric"
-            errorMessage={errorRend}
+            inputStyle={{ marginTop: 15 }}
+            style={EstiloT2.txtInput}
+          />
+        </View>
+        <Text style={EstiloT2.menssagemErro} >{errorNasc}</Text>
+
+        <View style={EstiloT2.viewTxtInput} >
+          <Icon
+            name='wallet-outline'
+            color="white"
+            type='ionicon'
+            style={{ marginRight: 10, marginTop: 15, marginLeft: 10 }} />
+          <TextInputMask
+          type='money'
+            placeholder='Renda Atual'
+            placeholderTextColor={'#d6d6d6'}
+            value={renda}
+            style={EstiloT2.txtInput}
+            keyboardType="numeric"
             onChangeText={value => {
               setRenda(value)
               setErrorRend(null)
             }}
-            value={renda}
-            leftIcon={
-              <Icon
-                name='wallet-outline'
-                color="white"
-                type='ionicon'
-                style={{ marginRight: 15, marginTop: 15 }} />
-            } />
+          />
         </View>
+        <Text style={EstiloT2.menssagemErro} >{errorRend}</Text>
 
-        <View  >
-          <Input
+        <View style={EstiloT2.viewTxtInput} >
+          <Icon
+            name='people-circle-outline'
+            color="white"
+            type='ionicon'
+            style={{ marginRight: 10, marginTop: 15, marginLeft: 10 }} />
+          <TextInput
             placeholder='Total de Dependentes*'
-            inputStyle={{ marginTop: 15 }}
+            placeholderTextColor={'#d6d6d6'}
+            style={EstiloT2.txtInput}
             keyboardType="numeric"
-            errorMessage={errorDepend}
             onChangeText={setDepend}
             value={depend}
-            leftIcon={
-              <Icon
-                name='people-circle-outline'
-                color="white"
-                type='ionicon'
-                style={{ marginRight: 15, marginTop: 15 }} />
-            } />
+          />
         </View>
 
-        <View  >
-          <Input
+        <View style={EstiloT2.viewTxtInput} >
+          <Icon
+            name='map-outline'
+            color="white"
+            type='ionicon'
+            style={{ marginRight: 10, marginTop: 15, marginLeft: 10 }} />
+          <TextInputMask
+            type='zip-code'
             placeholder='CEP*'
-            inputStyle={{ marginTop: 15 }}
+            placeholderTextColor={'#d6d6d6'}
+            value={cep}
+            style={EstiloT2.txtInput}
             keyboardType="numeric"
-            errorMessage={errorCep}
             onChangeText={value => {
               setCep(value)
               setErrorCep(null)
             }}
-            value={cep}
-            leftIcon={
-              <Icon
-                name='map-outline'
-                color="white"
-                type='ionicon'
-                style={{ marginRight: 15, marginTop: 15 }} />
-            } />
+          />
         </View>
+        <Text style={EstiloT2.menssagemErro} >{errorCep}</Text>
 
         <TouchableOpacity style={EstiloT2.salvarBT} onPress={salvou} >
           <Text style={EstiloT2.txtSalvarBT} >Salvar</Text>
