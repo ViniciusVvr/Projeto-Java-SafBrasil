@@ -31,14 +31,14 @@ export default StyleSheet.create({
         borderColor: 'white',
         borderBottomWidth: 1,
         borderStyle: 'solid',
-        padding: 10,
+        padding: 5,
         marginBottom: 30,
         color: 'white'
     },
     menssagemErro: {
         alignSelf: 'flex-start',
         marginLeft: 15,
-        color: '#eb272f',
+        color: '#ee4b52',
         marginTop: -30
     },
     salvarBT: {

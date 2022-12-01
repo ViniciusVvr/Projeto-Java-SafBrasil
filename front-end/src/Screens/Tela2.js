@@ -54,10 +54,16 @@ export default function Tela2({ navigation }) {
   };
 
   function valid() {
+    const sobreNome = String(nome).substring(String(nome).indexOf(" ") + 1)
+    const sobreNomeTeste = String(nome).indexOf(" ") >= 0
     let error = false
     const validEmail = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    if (nome == null || nome < 15) {
-      setErrorNome("Preencha seu Nome")
+
+    if (nome === null) {
+      setErrorNome("Informe seu nome")
+      error = true
+    } else if (sobreNome.length <= 1 || sobreNomeTeste == false) {
+      setErrorNome("Preencha seu nome completo!")
       error = true
     }
     if (!cpfField.isValid()) {
@@ -68,12 +74,18 @@ export default function Tela2({ navigation }) {
       setErrorEmail("Oops, ouve um erro! Preencha seu E-mail corretamente ")
       error = true
     }
-    if (tel == null || String(tel).length < 15) {
+    if (tel == null) {
       setErrorTel("Preencha seu telefone")
+      error = true
+    } else if (String(tel).length < 15) {
+      setErrorTel("Preenha seu um número de telefone válido!")
       error = true
     }
     if (nasc == null) {
-      setErrorNasc("Preencha sua data de nascimento")
+      setErrorNasc("Preencha sua data de nascimento!")
+      error = true
+    } else if (String(nasc).length <= 9) {
+      setErrorNasc("Preencha uma data de nascimento válida!")
       error = true
     }
     if (renda == null) {
@@ -81,7 +93,10 @@ export default function Tela2({ navigation }) {
       error = true
     }
     if (cep == null) {
-      setErrorCep("Preencha seu CPF")
+      setErrorCep("Preencha seu cep")
+      error = true
+    } else if (String(cep).length <= 8) {
+      setErrorCep("Preenca seu cep Corretamente!")
       error = true
     }
     return !error
@@ -111,7 +126,7 @@ export default function Tela2({ navigation }) {
             name='person-outline'
             color="white"
             type='ionicon'
-            style={{ marginRight: 10, marginTop: 15, marginLeft: 10 }} />
+            style={{ marginRight: 10, marginTop: 10, marginLeft: 10 }} />
           <TextInput
             placeholder='Nome Completo*'
             placeholderTextColor={'#d6d6d6'}
@@ -131,7 +146,7 @@ export default function Tela2({ navigation }) {
             name='keypad-outline'
             color="white"
             type='ionicon'
-            style={{ marginRight: 10, marginTop: 15, marginLeft: 10 }} />
+            style={{ marginRight: 10, marginTop: 10, marginLeft: 10 }} />
           <TextInputMask
             type={'cpf'}
             placeholder='CPF*'
@@ -154,7 +169,7 @@ export default function Tela2({ navigation }) {
             name='mail-outline'
             color="white"
             type='ionicon'
-            style={{ marginRight: 10, marginTop: 15, marginLeft: 10 }} />
+            style={{ marginRight: 10, marginTop: 10, marginLeft: 10 }} />
           <TextInput
             placeholder='Email*'
             placeholderTextColor={'#d6d6d6'}
@@ -174,7 +189,7 @@ export default function Tela2({ navigation }) {
             name='phone-portrait-outline'
             color="white"
             type='ionicon'
-            style={{ marginRight: 10, marginTop: 15, marginLeft: 10 }} />
+            style={{ marginRight: 10, marginTop: 10, marginLeft: 10 }} />
           <TextInputMask
             type={'cel-phone'}
             placeholder='Telefone*'
@@ -196,7 +211,7 @@ export default function Tela2({ navigation }) {
             name='calendar-outline'
             color="white"
             type='ionicon'
-            style={{ marginRight: 10, marginTop: 15, marginLeft: 10 }} />
+            style={{ marginRight: 10, marginTop: 10, marginLeft: 10 }} />
           <TextInputMask
             type={'datetime'}
             options={{
@@ -221,10 +236,10 @@ export default function Tela2({ navigation }) {
             name='wallet-outline'
             color="white"
             type='ionicon'
-            style={{ marginRight: 10, marginTop: 15, marginLeft: 10 }} />
+            style={{ marginRight: 10, marginTop: 10, marginLeft: 10 }} />
           <TextInputMask
           type='money'
-            placeholder='Renda Atual'
+            placeholder='Renda Atual*'
             placeholderTextColor={'#d6d6d6'}
             value={renda}
             style={EstiloT2.txtInput}
@@ -242,9 +257,9 @@ export default function Tela2({ navigation }) {
             name='people-circle-outline'
             color="white"
             type='ionicon'
-            style={{ marginRight: 10, marginTop: 15, marginLeft: 10 }} />
+            style={{ marginRight: 10, marginTop: 10, marginLeft: 10 }} />
           <TextInput
-            placeholder='Total de Dependentes*'
+            placeholder='Total de Dependentes'
             placeholderTextColor={'#d6d6d6'}
             style={EstiloT2.txtInput}
             keyboardType="numeric"
@@ -258,7 +273,7 @@ export default function Tela2({ navigation }) {
             name='map-outline'
             color="white"
             type='ionicon'
-            style={{ marginRight: 10, marginTop: 15, marginLeft: 10 }} />
+            style={{ marginRight: 10, marginTop: 10, marginLeft: 10 }} />
           <TextInputMask
             type='zip-code'
             placeholder='CEP*'

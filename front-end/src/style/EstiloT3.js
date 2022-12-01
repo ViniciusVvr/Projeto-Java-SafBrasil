@@ -37,7 +37,7 @@ export default StyleSheet.create({
     },
     txt1Result: {
         color: '#daedff', 
-        fontSize: 19
+        fontSize: 17
     },
     txt2Result: {
         color: "#34dd25", 
