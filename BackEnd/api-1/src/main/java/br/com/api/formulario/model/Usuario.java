@@ -1,5 +1,4 @@
 package br.com.api.formulario.model;
-import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,14 +24,13 @@ public class Usuario {
 	@Column(name = "telefone_morador", length = 12, nullable = true)
 	private String telefone;
 	@Column(name = "data_nascimento_morador", nullable = true)
-	private Date dataNascimento;
+	private String dataNascimento;
 	@Column(name = "renda_morador", length = 10, nullable = true)
 	private String renda;
 	@Column(name = "dependentes_morador", length = 2, nullable = true)
 	private String dependentes;
 	@Column(name = "cep_endereco", length = 8, nullable = true)
 	private String cep;
-	
 	
 	public Integer getId() {
 		return id;
@@ -64,10 +62,10 @@ public class Usuario {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public Date getDataNascimento() {
+	public String getDataNascimento() {
 		return dataNascimento;
 	}
-	public void setDataNascimento(Date dataNascimento) {
+	public void setDataNascimento(String dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 	public String getRenda() {
